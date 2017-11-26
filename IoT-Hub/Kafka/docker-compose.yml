@@ -1,0 +1,27 @@
+version: "2"
+services:
+  zookeeper:
+    image: ubuntu-kafka-test
+    network_mode: "host"
+    command: "zookeeper"
+
+  broker0:
+    image: ubuntu-kafka-test
+    network_mode: "host"
+    command: "broker 0 9092"
+    depends_on:
+      - zookeeper
+
+  broker1:
+    image: ubuntu-kafka-test
+    network_mode: "host"
+    command: "broker 1 9093"
+    depends_on:
+      - zookeeper
+
+  broker2:
+    image: ubuntu-kafka-test
+    network_mode: "host"
+    command: "broker 2 9094"
+    depends_on:
+      - zookeeper
