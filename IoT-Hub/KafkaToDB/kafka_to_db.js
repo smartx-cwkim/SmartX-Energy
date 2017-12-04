@@ -140,7 +140,9 @@ resourceOffset.fetch([{
                 ip: messageJSON.ip,
                 deviceId: messageJSON.deviceId,
                 timestamp: messageJSON.timestamp,
-                cp: messageJSON.cp
+                cp: messageJSON.cp,
+		zoneId: messageJSON.zoneId,
+		rackId: messageJSON.rackId
             },
             fields: {
                 memory: messageJSON.memory,
