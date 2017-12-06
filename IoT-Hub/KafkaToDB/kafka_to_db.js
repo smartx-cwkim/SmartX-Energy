@@ -17,7 +17,7 @@ var tempDB = new influx.InfluxDB({
 // Kafka - Temp
 var tempKafka = new kafka.Client('hub1:2181');
 var tempOffset = new kafka.Offset(tempKafka);
-
+console.log(tempKafka)
 tempOffset.fetch([{
         topic: 'temp',
         partition: 0,
