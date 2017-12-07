@@ -5,6 +5,8 @@ from jenkinsapi.jenkins import Jenkins
 
 process = subprocess.Popen('/bin/bash', stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
+TowerIP = ["210.114.90.167:2375"]
+
 command2 = "docker ps"
 
 print command2
@@ -21,16 +23,19 @@ print out
 J = Jenkins('http://localhost:8080', username='chorwon', password='ff80e94dbe84b0a98dc8976407102f14')
 print(J.version)
 
-job = J['IoT Deploy Job']
+job1 = J['IoT Deploy Job']
+job2 = J['Flafka_S2']
 
-print(job.get_description())
-print(job.get_scm_url())
+print(job1.get_description())
+print(job1.get_scm_url())
 
-build = job.get_last_completed_build()
-print(build)
-print(build.is_running())
-print(build.get_revision())
-print(build.get_status())
+build_job1 = job1.get_last_completed_build()
+print(build_job1)
+print(build_job1.is_running())
+print(build_job1.get_revision())
+print(build_job1.get_status())
 
-
-
+build_job2 = job2.get_last_completed_build()
+print(build_job2)
+print(build_job2.get_status())
+print(build_job2.is_running())
